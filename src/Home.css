@@ -1,0 +1,14 @@
+.home {
+  text-align: center;
+  padding-top: 100px;
+  background-color: aqua;
+}
+.home_buttons {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: white;
+  padding: 100px;
+}
+.home_buttons > a {
+  text-decoration: none;
+}
