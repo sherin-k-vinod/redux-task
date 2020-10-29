@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 function Details() {
   const product = useSelector((state) => state.products);
   const selected = useSelector((state) => state.selected);
-  console.log(selected);
+
   return (
     <div className="details">
       <h1>{product[selected]?.title} </h1>

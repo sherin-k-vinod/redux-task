@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./Form.css";
 import { Button } from "@material-ui/core";
-import Axios from "axios";
+import Axios from "./axios";
 import { addProduct } from "./redux";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 function Form() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const newProduct = (product) => dispatch(addProduct(product));
   const [name, setname] = useState("");
@@ -18,24 +19,15 @@ function Form() {
     e.preventDefault();
 
     newProduct({
-      name: name,
+      title: name,
       price: price,
       category: category,
       description: description,
       image: image,
     });
 
-    // Axios.post("product", {
-    //   name: name,
-    //   price: price,
-    //   category: category,
-    //   description: description,
-    //   image: image,
-    // }).then((response) => {
-    //   console.log(response.status);
-    // check the status and add data to redux
+    history.push("/list");
     //
-    //   });
   };
 
   return (
