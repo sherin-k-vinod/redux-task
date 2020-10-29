@@ -16,7 +16,7 @@ completed :
 
 6- delete data from redux state
 
-incomplete : 
+incomplete :
 
 1- updating data 
 
