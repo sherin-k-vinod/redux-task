@@ -1,4 +1,19 @@
 redux-task
+
+packages used : 
+
+material-ui
+
+axios
+
+react-router-dom
+
+
+
+
+API used : https://fakestoreapi.com/docs
+
+
 completed :
 
 1- fetching data from api using Axios
@@ -18,3 +33,8 @@ incomplete :
 1- updating data
 
 2- other API functions (POST/PUT/DELETE)
+    ps:tested in console 
+
+
+
+
