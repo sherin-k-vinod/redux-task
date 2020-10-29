@@ -34,16 +34,19 @@ function reducer(state, { type, payload }) {
         ),
       };
     case "DELETE_PRODUCT":
-      return {
-        ...state,
-        products: state.product.filter((product) => product.id !== payload),
-      };
+      const newProduct = [...state.products];
+      const index = state.products.findIndex(
+        (product) => product.id === payload
+      );
+      if (index >= 0) {
+        newProduct.splice(index, 1);
+      }
+      state.products = newProduct;
+      return { ...state, products: newProduct };
     case "SELECT_PRODUCT":
       return {
-        // selected: (state.selected = payload),
-        products: state.product.map((product) =>
-          product.id === payload ? { product } : null
-        ),
+        ...state,
+        selected: payload - 1,
       };
     default:
       return state;
@@ -55,9 +58,9 @@ export const addProduct = (product) => ({
   payload: product,
 });
 
-export const updateProduct = (id) => ({
+export const updateProduct = (product) => ({
   type: "UPDATE_PRODUCT",
-  payload: id,
+  payload: product,
 });
 
 export const deleteProduct = (id) => ({

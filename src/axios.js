@@ -4,3 +4,4 @@ const instacnce = axios.create({
   baseURL: "https://fakestoreapi.com/",
 });
 export default instacnce;
+// axios.get("/product")

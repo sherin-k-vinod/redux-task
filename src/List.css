@@ -16,7 +16,7 @@
 }
 .list_buttons {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   flex-direction: column;
   margin-left: 200px;
   flex: 1;

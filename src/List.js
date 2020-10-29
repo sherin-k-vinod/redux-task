@@ -1,21 +1,22 @@
 import { Button } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import Details from "./Details";
+import Axios from "axios";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import "./List.css";
+import { selectProduct, deleteProduct } from "./redux";
+
 function List() {
   const products = useSelector((state) => state.products);
-  const [selected, setselected] = useState();
-  useEffect(() => {
-    if (selected) {
-      <Details id={selected} />;
-    }
-    return () => {
-      setselected("");
-    };
-  }, [selected]);
+  const dispatch = useDispatch();
+  const newSelected = (id) => dispatch(selectProduct(id));
+  const deleteProd = (id) => dispatch(deleteProduct(id));
+  const selected = useSelector((state) => state.selected);
+  const history = useHistory();
   console.log(selected);
+  const deleteitem = (id) => {
+    deleteitem(id);
+  };
   return (
     <div className="list">
       <h1>List</h1>
@@ -28,16 +29,22 @@ function List() {
             <p>{product?.category}</p>
           </div>
           <div className="list_buttons">
-            {/* <Link
-              to={{
-                pathname: "/details",
-                idProp: { id: product.id },
+            <Button
+              onClick={() => {
+                newSelected(product.id);
+                history.push("/details");
               }}
-            > */}
-            <Button>Details</Button>
-            {/* </Link> */}
+            >
+              Details
+            </Button>
 
-            <Button>Delete</Button>
+            <Button
+              onClick={() => {
+                deleteProd(product.id);
+              }}
+            >
+              Delete
+            </Button>
             <Button>Update</Button>
           </div>
         </div>
