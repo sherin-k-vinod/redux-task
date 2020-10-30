@@ -24,7 +24,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/formpage">
-            <Form />
+            <Form isUpdate />
           </Route>
           <Route path="/list">
             <List />

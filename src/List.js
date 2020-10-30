@@ -13,7 +13,7 @@ function List() {
   const deleteProd = (id) => dispatch(deleteProduct(id));
   const selected = useSelector((state) => state.selected);
   const history = useHistory();
-  console.log(selected);
+
   const deleteitem = (id) => {
     deleteitem(id);
   };
@@ -45,7 +45,14 @@ function List() {
             >
               Delete
             </Button>
-            <Button>Update</Button>
+            <Button
+              onClick={() => {
+                newSelected(product.id);
+                history.push("/formpage");
+              }}
+            >
+              Update
+            </Button>
           </div>
         </div>
       ))}

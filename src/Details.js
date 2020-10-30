@@ -1,21 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Details.css";
 import { useSelector } from "react-redux";
 
 function Details() {
-  const product = useSelector((state) => state.products);
-  const selected = useSelector((state) => state.selected);
+  const products = useSelector((state) => state.products);
+  var selected = useSelector((state) => state.selected);
+  const [product, setproduct] = useState([]);
+  selected += 1;
+
+  useEffect(() => {
+    products.map((product) => {
+      if (product.id == selected) {
+        setproduct(product);
+      }
+    });
+  }, [products]);
 
   return (
     <div className="details">
-      <h1>{product[selected]?.title} </h1>
+      <div>
+        <h1>{product.title} </h1>
 
-      <div className="details_info">
-        <img src={product[selected]?.image} alt="" height="500" width="500" />
-        <div className="details_data">
-          <h3>{product[selected]?.category} </h3>
-          <p>$ {product[selected]?.price} </p>
-          <p>{product[selected]?.description} </p>
+        <div className="details_info">
+          <img
+            src={product.id === selected ? product.image : null}
+            alt=""
+            height="500"
+            width="500"
+          />
+          <div className="details_data">
+            <h3>{product.id === selected ? product.category : "category"} </h3>
+            <p>$ {product.id === selected ? product.price : "price"} </p>
+            <p>
+              {product.id === selected ? product.description : "description"}{" "}
+            </p>
+          </div>
         </div>
       </div>
     </div>
