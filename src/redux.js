@@ -25,8 +25,9 @@ function reducer(state, { type, payload }) {
           product.id === payload.id
             ? {
                 id: product.id,
-                name: payload.name,
+                title: payload.title,
                 category: payload.category,
+                description: payload.description,
                 price: payload.price,
                 image: payload.image,
               }
