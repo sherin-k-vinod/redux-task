@@ -28,12 +28,13 @@ completed :
 
 6- delete data from redux state
 
+7- update data 
+
 incomplete :
+1. other API functions (POST/PUT/DELETE)
+    ps:tested in console updating data
 
-1- updating data
-
-2- other API functions (POST/PUT/DELETE)
-    ps:tested in console 
+ 
 
 
 
