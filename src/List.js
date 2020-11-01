@@ -48,7 +48,7 @@ function List() {
             <Button
               onClick={() => {
                 newSelected(product.id);
-                history.push("/formpage");
+                history.push("/edit");
               }}
             >
               Update

@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import Details from "./Details";
 import { useEffect } from "react";
 import axios from "./axios";
+import UpdateForm from "./UpdateForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,7 +25,10 @@ function App() {
       <Router>
         <Switch>
           <Route path="/formpage">
-            <Form isUpdate />
+            <Form />
+          </Route>
+          <Route path="/edit">
+            <UpdateForm />
           </Route>
           <Route path="/list">
             <List />

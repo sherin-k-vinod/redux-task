@@ -21,8 +21,8 @@ function reducer(state, { type, payload }) {
     case "UPDATE_PRODUCT":
       return {
         ...state,
-        products: state.product.map((product) =>
-          product.id === payload
+        products: state.products.map((product) =>
+          product.id === payload.id
             ? {
                 id: product.id,
                 name: payload.name,
